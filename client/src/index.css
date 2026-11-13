@@ -1,0 +1,43 @@
+body {
+  background-color: #f6f7fb;
+}
+
+.event-date {
+  min-width: 4.25rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  background: #e7f1ff;
+  color: #0a58ca;
+  padding: 0.4rem 0.25rem;
+  line-height: 1.1;
+}
+.event-date .month {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.event-date .day {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.event-card {
+  transition: box-shadow 0.15s ease-in-out;
+}
+.event-card:hover {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+}
+
+.notif-menu {
+  width: 22rem;
+  max-height: 26rem;
+  overflow-y: auto;
+}
+.notif-menu .dropdown-item {
+  white-space: normal;
+}
+
+.description {
+  white-space: pre-wrap;
+}

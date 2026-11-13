@@ -1,0 +1,17 @@
+{
+  "name": "eventboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Community events board with real-time notifications (React, Express, MongoDB, Socket.IO)",
+  "scripts": {
+    "install:all": "npm ci --prefix server && npm ci --include=dev --prefix client",
+    "build": "npm run install:all && npm run build --prefix client",
+    "start": "node server/app.js",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "seed": "npm run seed --prefix server"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

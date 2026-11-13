@@ -1,0 +1,18 @@
+# Render Blueprint: one web service that serves both the API and the built React app.
+services:
+  - type: web
+    name: eventboard
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: MONGO_URI
+        sync: false   # paste your MongoDB Atlas connection string in the Render dashboard

@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mongo:
+        image: mongo:7
+        ports:
+          - 27017:27017
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            server/package-lock.json
+            client/package-lock.json
+      - name: Install
+        run: npm run install:all
+      - name: Lint client
+        run: npm run lint --prefix client
+      - name: Build client
+        run: npm run build --prefix client
+      - name: API and live-notification tests
+        run: npm test --prefix server
+        env:
+          MONGO_URL: mongodb://127.0.0.1:27017
